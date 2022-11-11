@@ -1,0 +1,27 @@
+{
+  "name": "media-mail-pricing-2",
+  "version": "1.0.0",
+  "description": "Website to determine the price of shipping for books domestically in the US.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidRod1865/media-mail-pricing.git"
+  },
+  "author": "David Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidRod1865/media-mail-pricing/issues"
+  },
+  "homepage": "https://github.com/DavidRod1865/media-mail-pricing#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^3.2.3"
+  }
+}
