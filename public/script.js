@@ -2,23 +2,21 @@
 
 document.querySelector(".submitBook").addEventListener('click', () => {
     const value = +document.getElementById("value").value;
-    const weight = +document.getElementById("weight").value; 
-    console.log(fetchData(weight))
+    const num = +document.getElementById("weight").value; 
+    console.log((num))
+    fetchData()
     paypal(value)
     event.preventDefault();
     });
 
-function fetchData(num){
-    fetch(`https://media-mail-api.herokuapp.com/api/weight/${num}`)
-        .then((res) => { 
-            res.json()
-        })
-        .then((data) => {
-            return (data)
-        })
-        .catch((error) => {
-        console.log('Error:', error);
-        })
+async function fetchData(){
+    await fetch(`https://media-mail-api.herokuapp.com/api/weight`, {
+        mode: 'cors',
+        headers: {
+        'Access-Control-Allow-Origin':'3000'
+        }})
+    .then(res => console.log(res))
+    .then(data => console.log(data))
     };
 
 // function calShipPay(){
@@ -35,6 +33,7 @@ function fetchData(num){
 function paypal(data){  
     if (data > 0){
         const paypalFeeResult = (data * .0349) + 0.49;
+        console.log(parseFloat(paypalFeeResult).toFixed(2))
         return parseFloat(paypalFeeResult).toFixed(2)
         } else if (data == 0){
             return 0.00;

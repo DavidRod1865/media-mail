@@ -4,11 +4,12 @@ const PORT = 3000
 const cors = require('cors')
 const path = require('path')
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use("/public", express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "src")));
 
 //Send Index.html to Server
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/public/index.html")
+    res.sendFile(__dirname + "/src/index.html")
 })
 
 //Activates Server
