@@ -19,6 +19,7 @@
   "homepage": "https://github.com/DavidRod1865/media-mail-pricing#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "nodemon": "^2.0.20",
     "path": "^0.12.7"

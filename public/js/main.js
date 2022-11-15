@@ -13,7 +13,7 @@ async function fetchData(){
     await fetch(`https://media-mail-api.herokuapp.com/api/weight`, {
         mode: 'cors',
         headers: {
-        'Access-Control-Allow-Origin':'3000'
+        'Access-Control-Allow-Origin':'*'
         }})
     .then(res => console.log(res))
     .then(data => console.log(data))
