@@ -1,5 +1,7 @@
 // function fade() {if ($('.fade').css('opacity') == 0) $('.fade').css('opacity', 1);}
 
+module.export = { packages }
+
 document.querySelector(".submitBook").addEventListener('click', () => {
     const value = +document.getElementById("value").value;
     const num = +document.getElementById("weight").value; 
@@ -9,15 +11,17 @@ document.querySelector(".submitBook").addEventListener('click', () => {
     event.preventDefault();
     });
 
-async function fetchData(){
-    await fetch(`https://media-mail-api.herokuapp.com/api/weight`, {
-        mode: 'cors',
-        headers: {
-        'Access-Control-Allow-Origin':'*'
-        }})
-    .then(res => console.log(res))
-    .then(data => console.log(data))
-    };
+let packages = fetch(`https://media-mail-api.herokuapp.com/api/weight`)
+
+// async function fetchData(){
+    // await fetch(`https://media-mail-api.herokuapp.com/api/weight`, {
+    //     mode: 'cors',
+    //     headers: {
+    //     'Access-Control-Allow-Origin':'*'
+    //     }})
+    // .then(res => console.log(res))
+    // .then(data => console.log(data))
+    // };
 
 // function calShipPay(){
 //     let weight = document.getElementById("weight").value;    
