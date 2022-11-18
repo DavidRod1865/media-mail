@@ -1,17 +1,20 @@
 // function fade() {if ($('.fade').css('opacity') == 0) $('.fade').css('opacity', 1);}
 
-module.export = { packages }
+// document.querySelector(".submitBook").addEventListener('click', () => {
+//     const value = +document.getElementById("value").value;
+//     const num = +document.getElementById("weight").value; 
+//     console.log((num))
+//     fetchData()
+//     paypal(value)
+//     event.preventDefault();
+//     });
 
-document.querySelector(".submitBook").addEventListener('click', () => {
-    const value = +document.getElementById("value").value;
-    const num = +document.getElementById("weight").value; 
-    console.log((num))
-    fetchData()
-    paypal(value)
-    event.preventDefault();
-    });
-
-let packages = fetch(`https://media-mail-api.herokuapp.com/api/weight`)
+// function fetchData(){
+//     fetch(`https://media-mail-api.herokuapp.com/api/weight`)
+//     .then(data => {
+//         console.log(data)
+//     })
+// }
 
 // async function fetchData(){
     // await fetch(`https://media-mail-api.herokuapp.com/api/weight`, {
@@ -34,15 +37,15 @@ let packages = fetch(`https://media-mail-api.herokuapp.com/api/weight`)
 //     //     }
 // };
     
-function paypal(data){  
-    if (data > 0){
-        const paypalFeeResult = (data * .0349) + 0.49;
-        console.log(parseFloat(paypalFeeResult).toFixed(2))
-        return parseFloat(paypalFeeResult).toFixed(2)
-        } else if (data == 0){
-            return 0.00;
-        }
-    }
+// function paypal(data){  
+//     if (data > 0){
+//         const paypalFeeResult = (data * .0349) + 0.49;
+//         console.log(parseFloat(paypalFeeResult).toFixed(2))
+//         return parseFloat(paypalFeeResult).toFixed(2)
+//         } else if (data == 0){
+//             return 0.00;
+//         }
+//     }
 
 // function paypal2(){
 //     let paypalFee = +document.getElementById("value").value;  
@@ -99,3 +102,21 @@ function paypal(data){
 //     event.preventDefault();
 //     });
 
+const update = document.querySelector('#submitWeight')
+
+update.addEventListener('click', _ => {
+    fetch('https://media-mail-api.herokuapp.com/api/weight', {
+        method: 'put',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            weight: '',
+            shipRate: ''
+          })
+      })
+      .then(res => {
+        if (res.ok) return res.json()
+      })
+      .then(response => {
+        window.location.reload(true)
+      })
+  })

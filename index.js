@@ -4,23 +4,26 @@ const PORT = 3000
 const cors = require('cors')
 const path = require('path')
 const ejs = require('ejs')
-const main = require('./public/js/main.js')
-
-import { packages } from './public/js/main.js'
+const bodyParser = require('body-parser')
 
 // Express Middleware
 app.set('view engine', 'ejs')
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Send Index.html to Server
 app.get('/', (req, res) => {
-    console.log(packages)
-    res.render("index.ejs")
+    res.render("index.ejs", {
+
+    })
 })
+
+
 
 //Grab API Data
 app.post('/mediaMail/:weight', (req, res) => {
-    console.log(packages[2])
+
     res.redirect('/')
 })
 
