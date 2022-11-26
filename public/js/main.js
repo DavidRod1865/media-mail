@@ -102,21 +102,42 @@
 //     event.preventDefault();
 //     });
 
-const update = document.querySelector('#submitWeight')
-
-update.addEventListener('click', _ => {
-    fetch('https://media-mail-api.herokuapp.com/api/weight', {
-        method: 'put',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            weight: '',
-            shipRate: ''
-          })
+function fetchWeight(weight) {
+  fetch(`https://media-mail-api.vercel.app/api/weight/${weight}`)
+      .then(res => {
+        if (res.ok) 
+        console.log(res.json())
+        return res.json()
       })
       .then(res => {
-        if (res.ok) return res.json()
-      })
-      .then(response => {
         window.location.reload(true)
       })
-  })
+      .catch(error => {
+        if (error.res) {
+          console.log(error.res.data)
+          console.log(error.res.status)
+          console.log(error.res.headers)
+        }
+      })
+
+}
+
+// const update = document.querySelector('#submitWeight')
+
+// update.addEventListener('click', _ => {
+//     fetch('https://media-mail-api.herokuapp.com/api/weight', {
+//         method: 'put',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({
+//             weight: '',
+//             shipRate: ''
+//           })
+//       })
+//       .then(res => {
+//         if (res.ok) 
+//         return res.json()
+//       })
+//       .then(response => {
+//         window.location.reload(true)
+//       })
+//   })

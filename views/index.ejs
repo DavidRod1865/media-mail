@@ -16,13 +16,13 @@
          
          <p class="intro">Know how much a book is worth but don't know how much shipping costs are? How about Paypal Fees? Buying and selling books on non-traditional online market places, such as Reddit, can be very fulfilling.</p>
 
-        <form action="" method="get" class="form-values flex">
+        <form action="/package" method="get" class="form-values flex">
             
-            <input type="text" placeholder="Enter VALUE Here!" id="value" name="value" required minlength="1" maxlength="6" size="10" onsubmit="return false" >
+            <input type="text" placeholder="Enter VALUE Here!" id="bookValue" name="bookValue" required minlength="1" maxlength="6" size="10" onsubmit="return false" >
 
-            <input type="text" placeholder="Enter WEIGHT Here!" id="weight" name="weight" required minlength="1"maxlength="3" size="10" onsubmit="return false" >
-            
-            <button class="submitBook" type="submit">Calculate!</button>
+            <input type="text" placeholder="Enter WEIGHT Here!" id="bookWeight" name="bookWeight" required minlength="1" maxlength="2" size="10" onsubmit="return false" >
+
+            <button action="/submitPackage" class="submitWeight submitBook" method="'post" type="submit">Calculate!</button>
         
         </form>
 
@@ -38,12 +38,16 @@
             <span>Paypal G&S Fee: <strong>$<span class="paypalFee2">0.00</strong></span></span>
         </div>
 
-        <h3 class="weight"></h3>
-
-        <button action="/mediaMail/:weight" class="submitWeight" type="submit">Calculate!</button>
-
+<ul>
+<% for (let i = 0; i < package.length; i++) { %>
+<li>
+    <span><% package[i].weight %></span>
+    <span><% package[i].rate %></span>
+</li>
+<% } %>
+</ul>
     </content>
-    <script src="../public/js/main.js" rel="script"></script>
+    <!-- <script src="../public/js/main.js" rel="script"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </body>
 </html>
